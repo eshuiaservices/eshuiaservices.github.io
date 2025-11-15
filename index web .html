@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eshu IA Services - Soluciones de Inteligencia Artificial para automatizar negocios. Creado por Yasnian Sotero Díaz">
+    <meta name="author" content="Yasnian Sotero Díaz - CEO Eshu IA Services">
+    <title>Eshu IA Services - Automatiza Tu Negocio con IA | Yasnian Sotero Díaz</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #2563eb; --accent: #8b5cf6;
+            --dark: #1e293b; --light: #f8fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6; color: var(--dark);
+        }
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1); z-index: 1000;
+            padding: 1rem 5%;
+        }
+        nav ul {
+            list-style: none; display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap;
+        }
+        nav a {
+            text-decoration: none; color: var(--dark); font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--primary); }
+        .logo {
+            font-size: 1.5rem; font-weight: 800; color: var(--primary);
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        /* ESTILOS PARA LOGO IMAGEN */
+        .logo-img {
+            height: 40px;
+            width: auto;
+            border-radius: 8px;
+        }
+        .hero {
+            margin-top: 80px; padding: 4rem 5%; text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white; min-height: 70vh; display: flex;
+            flex-direction: column; justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        /* IMAGEN DE FONDO OPCIONAL EN HERO */
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            z-index: -1;
+        }
+        .hero h1 { 
+            font-size: clamp(2rem, 5vw, 3.5rem); 
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .hero .ceo-tag {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            margin-bottom: 2rem; 
+            max-width: 700px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons { 
+            display: flex; gap: 1rem; flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        .btn {
+            padding: 1rem 2rem; border-radius: 50px; text-decoration: none;
+            font-weight: 700; cursor: pointer; border: none; font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-primary { background: white; color: var(--primary); }
+        .btn-secondary { background: transparent; color: white; border: 2px solid white; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        /* IMAGENES EN SERVICIOS */
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .services { padding: 5rem 5%; background: var(--light); }
+        .services h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; max-width: 1200px; margin: 0 auto;
+        }
+        .service-card {
+            background: white; padding: 2rem; border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .service-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .service-card h3 { color: var(--primary); margin-bottom: 1rem; }
+        .about {
+            padding: 5rem 5%; max-width: 1000px; margin: 0 auto; text-align: center;
+        }
+        .about h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+        /* FOTO DEL CEO */
+        .ceo-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            margin: 1rem auto;
+            display: block;
+        }
+        .about .ceo-highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .about .ceo-highlight h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .contact {
+            padding: 5rem 5%; background: linear-gradient(135deg, var(--dark), #0f172a);
+            color: white; text-align: center;
+        }
+        .contact h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .contact-form {
+            max-width: 600px; margin: 2rem auto; display: grid; gap: 1rem;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 1rem; border-radius: 10px; border: none; font-size: 1rem;
+        }
+        .contact-form button { 
+            background: var(--accent); color: white; cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .contact-form button:hover {
+            transform: translateY(-3px);
+        }
+        footer {
+            background: var(--dark); color: white; text-align: center; 
+            padding: 3rem 2rem;
+        }
+        .footer-brand {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .footer-ceo {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; gap: 1rem; }
+            .hero { margin-top: 120px; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <ul>
+            <li class="logo">
+                <!-- LOGO DE TU PROYECTO (opcional) -->
+                <!-- <img src="images/logo.png" alt="Eshu IA Services" class="logo-img"> -->
+                🤖 Eshu IA Services
+            </li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#sobre">Sobre Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <!-- IMAGEN DE FONDO OPCIONAL -->
+        <!-- <img src="images/hero-bg.jpg" alt="Fondo" class="hero-bg"> -->
+        
+        <div class="logo" style="font-size: 2.5rem; margin-bottom: 1rem;">🤖 Eshu IA Services</div>
+        <h1>Transforma Tu Negocio con Inteligencia Artificial</h1>
+        <p class="ceo-tag">Diseñado e implementado por Yasnian Sotero Díaz, CEO & Fundador</p>
+        <p>Soluciones integrales: webs inteligentes, chatbots 24/7, automatizaciones y gestión de reservas automatizada</p>
+        <div class="cta-buttons">
+            <a href="#contacto" class="btn btn-primary">Solicita Demo Gratis con Yasnian</a>
+            <a href="#servicios" class="btn btn-secondary">Ver Servicios</a>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="services">
+        <h2>Nuestros Servicios de IA</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <!-- IMAGEN PARA SERVICIO 1 -->
+                <!-- <img src="images/web-inteligente.jpg" alt="Webs Inteligentes" class="service-img"> -->
+                <div class="service-icon">🌐</div>
+                <h3>Páginas Web Inteligentes</h3>
+                <p>Webs modernas, rápidas y optimizadas con IA integrada. Desde landing pages hasta tiendas completas.</p>
+            </div>
+            <div class="service-card">
+                <!-- IMAGEN PARA SERVICIO 2 -->
+                <!-- <img src="images/chatbots.jpg" alt="Chatbots" class="service-img"> -->
+                <div class="service-icon">🤖</div>
+                <h3>Chatbots 24/7 Multiplataforma</h3>
+                <p>Atención automática en web, WhatsApp y email. Nunca pierdas un cliente por horario.</p>
+            </div>
+            <div class="service-card">
+                <!-- IMAGEN PARA SERVICIO 3 -->
+                <!-- <img src="images/automatizacion.jpg" alt="Automatización" class="service-img"> -->
+                <div class="service-icon">⚡</div>
+                <h3>Automatización de Procesos</h3>
+                <p>Flujos de trabajo inteligentes que ahorran horas de trabajo manual. Integración con las herramientas que ya usas.</p>
+            </div>
+            <div class="service-card">
+                <!-- IMAGEN PARA SERVICIO 4 -->
+                <!-- <img src="images/reservas.jpg" alt="Reservas" class="service-img"> -->
+                <div class="service-icon">📅</div>
+                <h3>Gestión IA de Reservas</h3>
+                <p>Sistema que confirma, cancela y reagenda automáticamente. Sincroniza con Google Calendar y más.</p>
+            </div>
+            <div class="service-card">
+                <!-- IMAGEN PARA SERVICIO 5 -->
+                <!-- <img src="images/whatsapp.jpg" alt="WhatsApp API" class="service-img"> -->
+                <div class="service-icon">💬</div>
+                <h3>WhatsApp Business API</h3>
+                <p>Automatiza respuestas, envía recordatorios y atiende múltiples clientes simultáneamente.</p>
+            </div>
+            <div class="service-card">
+                <!-- IMAGEN PARA SERVICIO 6 -->
+                <!-- <img src="images/email.jpg" alt="Email Automation" class="service-img"> -->
+                <div class="service-icon">📧</div>
+                <h3>Email Automation Inteligente</h3>
+                <p>Respuestas automáticas contextualizadas, seguimiento de leads y campañas personalizadas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre" class="about">
+        <h2>Sobre Eshu IA Services</h2>
+        <p>Somos especialistas en IA aplicada a negocios. Transformamos PyMEs con tecnología que antes solo estaba al alcance de grandes corporaciones. Nuestra misión es simple: que trabajes menos y vendas más. Cada solución es personalizada porque tu negocio es único.</p>
+        
+        <div class="ceo-highlight">
+            <h3>👨‍💻 Conoce al Fundador</h3>
+            <!-- FOTO DE YASNIAN -->
+            <!-- <img src="images/yasnian-photo.jpg" alt="Yasnian Sotero Díaz" class="ceo-photo"> -->
+            <p><strong>Yasnian Sotero Díaz</strong> - CEO & Desarrollador Principal</p>
+            <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.95;">
+                Apasionado de la inteligencia artificial y la automatización, Yasnian fundó Eshu IA Services con la visión de democratizar el acceso a la tecnología de punta para empresas de todos los tamaños. Con experiencia práctica en implementación de soluciones IA que generan resultados medibles.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact">
+        <h2>¿Listo para el Siguiente Nivel?</h2>
+        <p>Agenda tu consultoría GRATUITA de 30 minutos directamente con Yasnian Sotero Díaz. Analizamos tu negocio y te mostramos cómo la IA puede duplicar tu productividad.</p>
+        
+        <form class="contact-form" action="https://formsubmit.co/eschuiaservices.tech@outlook.es" method="POST">
+            <input type="text" name="nombre" placeholder="Tu Nombre Completo" required>
+            <input type="email" name="email" placeholder="Email de Contacto" required>
+            <input type="tel" name="telefono" placeholder="Teléfono WhatsApp (opcional)">
+            <textarea name="mensaje" rows="4" placeholder="¿Qué proceso quieres automatizar primero? Cuéntanos de tu negocio..." required></textarea>
+            <input type="hidden" name="_subject" value="NUEVO CLIENTE Eshu IA Services - CONTACTO CEO">
+            <input type="hidden" name="_next" value="https://tunombredeusuario.github.io/gracias.html">
+            <input type="hidden" name="_autoresponse" value="Gracias por contactar a Eshu IA Services. Yasnian Sotero Díaz te responderá personalmente en menos de 24 horas.">
+            <button type="submit" class="btn btn-primary">Enviar Solicitud a Yasnian</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-brand">🤖 Eshu IA Services</div>
+        <div class="footer-ceo">Fundado por <strong>Yasnian Sotero Díaz</strong> - Desarrollador & CEO</div>
+        <p style="margin-bottom: 1rem;">&copy; 2025 Eshu IA Services | Automatizando el futuro, hoy</p>
+        <p>📧 eschuiaservices.tech@outlook.es | 📱 WhatsApp: +34 635864770</p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.7;">
+            "Transformando negocios con inteligencia artificial accesible"
+        </p>
+    </footer>
+</body>
+</html>
